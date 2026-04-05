@@ -37,9 +37,9 @@ int API_wallFront() {
 
 void US_Read (void)
 {
-	HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_SET);  // pull the TRIG pin HIGH
+	HAL_GPIO_WritePin(US_Echo, US_Trig, 1);  // pull the TRIG pin HIGH
 	delay(10);  // wait for 10 us
-	HAL_GPIO_WritePin(TRIG_PORT, TRIG_PIN, GPIO_PIN_RESET);  // pull the TRIG pin low
+	HAL_GPIO_WritePin(US_Echo, US_Trig, 0);  // pull the TRIG pin low
 
 	__HAL_TIM_ENABLE_IT(&htim1, TIM_IT_CC1);
 }
